@@ -52,6 +52,7 @@ nav ul {
   flex-direction: column;
   list-style: none;
   text-align: center;
+  padding: 0;
 }
 
 nav li {
@@ -110,7 +111,6 @@ h3 {
   margin-left: 1rem;
 }
 
-/* Upgrades grid */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -145,6 +145,7 @@ footer {
   color: #fff;
   padding: 1rem;
   margin-top: 2rem;
+  font-size: 0.85rem;
 }
 
 /* ===== Desktop Layout ===== */
@@ -178,6 +179,6 @@ footer {
   }
 
   .grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
