@@ -113,10 +113,13 @@ h3 {
   margin-left: 1rem;
 }
 
+/* Featured Vehicles Grid */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* responsive */
   gap: 1rem;
+  justify-items: center;
+  align-items: start;
 }
 
 .grid article {
@@ -124,13 +127,18 @@ h3 {
   padding: 0.5rem;
   border-radius: 6px;
   text-align: center;
+  width: 100%;
+  max-width: 200px; /* keeps them the same size */
 }
 
 .grid img {
-  width: 100%;
-  height: auto;
+  width: 100px;     /* smaller images */
+  height: 100px;    /* force uniform size */
+  object-fit: contain; /* keep proportions */
   border-radius: 4px;
+  margin-bottom: 0.5rem;
 }
+
 
 .grid a {
   display: block;
