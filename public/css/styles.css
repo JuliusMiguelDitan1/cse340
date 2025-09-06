@@ -5,11 +5,16 @@
   box-sizing: border-box;
 }
 
+/* ===== Fonts ===== */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
   background: #fff;
   color: #111;
+}
+
+h1, h2, h3, nav, header .siteName, footer {
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* ===== Wrapper ===== */
