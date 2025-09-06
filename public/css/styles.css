@@ -49,18 +49,24 @@ nav {
 
 nav ul {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly; /* evenly distribute nav items */
+  align-items: center;
   list-style: none;
-  text-align: center;
+  margin: 0;
   padding: 0;
 }
 
 nav li {
-  padding: 0.5rem;
+  flex: 1; /* each li takes equal space */
+  text-align: center;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  display: block;
+  padding: 0.5rem 0;
 }
+
+
 /* ===== Hero Section ===== */
 .hero {
   text-align: center;
