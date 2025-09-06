@@ -1,1 +1,43 @@
-<h1>Ditan</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+  <body>
+    <div id="wrapper">
+      <%- include('./partials/header') %>
+      <%- include('./partials/navigation') %>
+
+      <main>
+        <section class="hero">
+          <img src="/images/car1.jpg" alt="CSE Motors showcase car" class="hero-img" />
+          <div class="hero-text">
+            <h1>Welcome to CSE Motors</h1>
+            <p>Your trusted partner in quality vehicles</p>
+          </div>
+        </section>
+
+        <section class="featured">
+          <h2>Featured Vehicles</h2>
+          <div class="grid">
+            <article>
+              <img src="/images/car2.jpg" alt="Sedan model" />
+              <h3>Reliable Sedan</h3>
+              <p>Perfect for city driving and daily commutes.</p>
+            </article>
+            <article>
+              <img src="/images/car3.jpg" alt="SUV model" />
+              <h3>Family SUV</h3>
+              <p>Spacious, safe, and ready for adventure.</p>
+            </article>
+            <article>
+              <img src="/images/car4.jpg" alt="Sports car model" />
+              <h3>Sport Coupe</h3>
+              <p>Experience speed and style like never before.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <%- include('./partials/footer') %>
+    </div>
+  </body>
+</html>
