@@ -11,6 +11,7 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
+const utilities = require("./utilities/")
 
 /* ***********************
  * View Engine and Templates
@@ -20,14 +21,20 @@ app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 
 /* ***********************
+ * Middleware to inject nav into all views
+ *************************/
+app.use(async (req, res, next) => {
+  res.locals.nav = await utilities.getNav()
+  next()
+})
+
+/* ***********************
  * Routes
  *************************/
 app.use(static)
-app.get("/", function(req, res) {
-res.render("index", {title: "Home"})
-}) 
-//index route
-app.get("/",baseController.buildHome)
+
+// Home route (only keep this one)
+app.get("/", baseController.buildHome)
 
 /* ***********************
  * Local Server Information
