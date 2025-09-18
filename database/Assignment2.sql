@@ -25,3 +25,5 @@ SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
 SELECT inv_make, inv_model, inv_image, inv_thumbnail
 FROM inventory;
 
+
+
