@@ -10,7 +10,7 @@ router.use("/js", express.static(__dirname + "public/js"));
 router.use("/images", express.static(__dirname + "public/images"));
 
 //index route
-application.get("/",baseController.buildHome)
+app.get("/",baseController.buildHome)
 
 module.exports = router;
 
