@@ -71,6 +71,22 @@ nav li {
   padding: 0.5rem 0;
 }
 
+nav a {
+  color: #fff;
+  display: block;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #444;
+}
+
+nav a.active {
+  background: #00a2c7; /* teal highlight */
+  color: #fff;         /* keep text white */
+  border-radius: 4px;  /* optional: rounded corners */
+}
 
 /* ===== Hero Section ===== */
 .hero {
