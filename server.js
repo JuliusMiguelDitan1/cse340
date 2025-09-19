@@ -48,6 +48,6 @@ const port = process.env.PORT || 5500
 /* ***********************
  * Log statement to confirm server operation
  *************************/
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`app listening on port ${port}`)
 })
