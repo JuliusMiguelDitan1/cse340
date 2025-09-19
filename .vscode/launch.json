@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [{
         "name": "Launch Program",
-        "program": "${workspaceFolder}/1",
+        "program": "${workspaceFolder}/server.js",
         "request": "launch",
         "skipFiles": [
             "<node_internals>/**"
