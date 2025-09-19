@@ -35,7 +35,7 @@ app.use(async (req, res, next) => {
 app.use(express.static("public"))
 app.use(static)
 // Index route
-app.get("/", baseController.buildHome)
+utilities.handleErrors(baseController.buildHome)
 app.use("/inv", inventoryRoute)
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
