@@ -32,9 +32,11 @@ app.use(async (req, res, next) => {
  * Routes
  *************************/
 app.use(static)
-
-// Home route (only keep this one)
+app.get("/", function(req, res) { 
+  res.render("index", {title: "Home"}) })
+// Index route
 app.get("/", baseController.buildHome)
+app.use("/inv", inventoryRoute)
 
 /* ***********************
  * Local Server Information
