@@ -6,6 +6,7 @@ const Util = {}
  ************************** */
 Util.getNav = async function () {
   let data = await invModel.getClassifications()
+  console.log(data)
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
