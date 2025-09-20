@@ -266,6 +266,13 @@ footer {
   margin-top: 2rem;
   font-size: 0.85rem;
 }
+footer a{
+  color: #fff;
+}
+
+a.active {
+  color: #fff;
+}
 
 /* ===== Desktop Layout ===== */
 @media (min-width: 768px) {
