@@ -160,55 +160,13 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+
 .grid a {
   display: block;
   margin-top: 0.3rem;
   font-weight: bold;
   text-decoration: none;
   color: #111;
-}
-
-/* ===== Vehicle Detail Page ===== */
-#inv-detail {
-  padding: 1rem;
-}
-
-.vehicle-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.vehicle-detail img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
-
-.vehicle-info {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.vehicle-info h2 {
-  margin-bottom: 0.5rem;
-}
-
-.vehicle-info p {
-  margin: 0.5rem 0;
-}
-
-/* Larger screens: side-by-side layout */
-@media (min-width: 768px) {
-  .vehicle-detail {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .vehicle-image, 
-  .vehicle-info {
-    flex: 1;
-  }
 }
 
 /* ===== Footer ===== */
@@ -255,3 +213,4 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
