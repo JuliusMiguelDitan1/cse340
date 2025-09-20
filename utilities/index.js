@@ -66,3 +66,26 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+/* **************************************
+* Build the vehicle detail view HTML
+* ************************************ */
+Util.buildDetailView = async function(vehicle) {
+  let detail = ""
+  if (vehicle) {
+    detail += `<section id="inv-detail">`
+    detail += `<div class="vehicle-image">`
+    detail += `<img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model} on CSE Motors" />`
+    detail += `</div>`
+    detail += `<div class="vehicle-info">`
+    detail += `<h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>`
+    detail += `<span class="price">Price: $${new Intl.NumberFormat("en-US").format(vehicle.inv_price)}</span>`
+    detail += `<p><strong>Mileage:</strong> ${new Intl.NumberFormat("en-US").format(vehicle.inv_miles)} miles</p>`
+    detail += `<p><strong>Description:</strong> ${vehicle.inv_description}</p>`
+    detail += `</div>`
+    detail += `</section>`
+  } else {
+    detail = `<p class="notice">Sorry, vehicle details not found.</p>`
+  }
+  return detail
+}
