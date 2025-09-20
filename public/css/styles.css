@@ -6,11 +6,29 @@
 }
 
 /* ===== Fonts ===== */
+/* ===== Page Background Pattern ===== */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
-  background: #fff;
   color: #111;
+
+  /* Background pattern outside all sections */
+  background-image: url("/images/site/checkerboard.jpg"),
+                    url("/images/site/small_check.jpg"),
+                    url("/images/site/small_check.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  background-attachment: fixed;  /* stays in place on scroll */
+  background-color: #fff;        /* fallback color */
+}
+
+/* ===== Hide background pattern on mobile ===== */
+@media (max-width: 767px) {
+  body {
+    background-image: none;
+    background-color: #fff;  /* fallback plain background */
+  }
 }
 
 h1, h2, h3, nav, header .siteName, footer {
@@ -54,7 +72,7 @@ nav {
 
 nav ul {
   display: flex;
-  justify-content: space-evenly; /* evenly distribute nav items */
+  justify-content: space-evenly;
   align-items: center;
   list-style: none;
   margin: 0;
@@ -62,7 +80,7 @@ nav ul {
 }
 
 nav li {
-  flex: 1; /* each li takes equal space */
+  flex: 1;
   text-align: center;
   text-decoration: none;
   color: #fff;
@@ -83,9 +101,9 @@ nav a:hover {
 }
 
 nav a.active {
-  background: #00a2c7; /* teal highlight */
-  color: #fff;         /* keep text white */
-  border-radius: 4px;  /* optional: rounded corners */
+  background: #00a2c7;
+  color: #fff;
+  border-radius: 4px;
 }
 
 /* ===== Hero Section ===== */
@@ -137,7 +155,7 @@ h3 {
 /* Featured Vehicles Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* responsive */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   justify-items: center;
   align-items: start;
@@ -149,13 +167,13 @@ h3 {
   border-radius: 6px;
   text-align: center;
   width: 100%;
-  max-width: 200px; /* keeps them the same size */
+  max-width: 200px;
 }
 
 .grid img {
-  width: 100px;     /* smaller images */
-  height: 100px;    /* force uniform size */
-  object-fit: contain; /* keep proportions */
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
@@ -179,10 +197,15 @@ h3 {
   gap: 1.5rem;
 }
 
-.vehicle-detail img {
-  max-width: 100%;
+/* Main vehicle image styling */
+.vehicle-image img {
+  width: 100%;
+  max-width: 600px;
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto;
 }
 
 .vehicle-info {
@@ -198,16 +221,39 @@ h3 {
   margin: 0.5rem 0;
 }
 
+/* Vehicle thumbnails */
+.vehicle-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.vehicle-thumbnails img {
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.vehicle-thumbnails img:hover {
+  border-color: #0077cc;
+}
+
 /* Larger screens: side-by-side layout */
 @media (min-width: 768px) {
   .vehicle-detail {
     flex-direction: row;
     align-items: flex-start;
+    gap: 2rem;
   }
 
-  .vehicle-image, 
+  .vehicle-image {
+    flex: 1 1 60%;
+  }
+
   .vehicle-info {
-    flex: 1;
+    flex: 1 1 40%;
   }
 }
 

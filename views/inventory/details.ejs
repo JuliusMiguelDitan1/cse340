@@ -1,6 +1,5 @@
-<!-- views/inventory/detail.ejs -->
 <%- include("../partials/head") %>
-<title><%= inv.inv_make %> <%= inv.inv_model %> Details</title>
+<title><%= title %></title>
 </head>
 <body>
   <%- include("../partials/header") %>
@@ -8,22 +7,17 @@
     <h1><%= inv.inv_make %> <%= inv.inv_model %></h1>
     <section class="vehicle-detail">
       <figure class="vehicle-image">
-        <img src="<%= inv.inv_image %>" 
+        <img src="<%= inv.inv_thumbnail %>" 
              alt="Image of <%= inv.inv_make %> <%= inv.inv_model %>">
       </figure>
       <div class="vehicle-info">
         <h2><%= inv.inv_year %> <%= inv.inv_make %> <%= inv.inv_model %></h2>
-        <p><strong>Price:</strong> 
-          <%= new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(inv.inv_price) %>
-        </p>
-        <p><strong>Mileage:</strong> 
-          <%= new Intl.NumberFormat("en-US").format(inv.inv_miles) %> miles
-        </p>
+        <p><strong>Price:</strong> <%= inv.inv_price_fmt %></p>
+        <p><strong>Mileage:</strong> <%= inv.inv_miles_fmt %> miles</p>
         <p><strong>Color:</strong> <%= inv.inv_color %></p>
         <p><strong>Description:</strong> <%= inv.inv_description %></p>
       </div>
     </section>
   </main>
-  <%- include("../partials/footer") %>
 </body>
 </html>

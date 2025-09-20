@@ -37,11 +37,13 @@ async function getVehicleById(inv_id) {
        WHERE inv_id = $1`,
       [inv_id]
     )
-    return data.rows
+    return data.rows[0]  // return a single vehicle object
   } catch (error) {
-    console.error("getVehicleById error " + error)
+    console.error("getVehicleById error:", error)
+    throw error
   }
 }
+
 
 module.exports = { 
   getClassifications, 

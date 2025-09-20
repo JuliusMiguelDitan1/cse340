@@ -30,9 +30,8 @@ Util.getNav = async function () {
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
-
-module.exports = Util
+Util.handleErrors = fn => (req, res, next) => 
+  Promise.resolve(fn(req, res, next)).catch(next)
 
 /* **************************************
 * Build the classification view HTML
@@ -43,15 +42,15 @@ Util.buildClassificationGrid = async function(data){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      grid +=  '<a href="/inv/detail/'+ vehicle.inv_id 
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-      + 'details"><img src="' + vehicle.inv_thumbnail 
+      + ' details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
       grid += '<hr />'
       grid += '<h2>'
-      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      grid += '<a href="/inv/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
@@ -62,30 +61,11 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid = '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
   return grid
 }
 
-/* **************************************
-* Build the vehicle detail view HTML
-* ************************************ */
-Util.buildDetailView = async function(vehicle) {
-  let detail = ""
-  if (vehicle) {
-    detail += `<section id="inv-detail">`
-    detail += `<div class="vehicle-image">`
-    detail += `<img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model} on CSE Motors" />`
-    detail += `</div>`
-    detail += `<div class="vehicle-info">`
-    detail += `<h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>`
-    detail += `<span class="price">Price: $${new Intl.NumberFormat("en-US").format(vehicle.inv_price)}</span>`
-    detail += `<p><strong>Mileage:</strong> ${new Intl.NumberFormat("en-US").format(vehicle.inv_miles)} miles</p>`
-    detail += `<p><strong>Description:</strong> ${vehicle.inv_description}</p>`
-    detail += `</div>`
-    detail += `</section>`
-  } else {
-    detail = `<p class="notice">Sorry, vehicle details not found.</p>`
-  }
-  return detail
-}
+
+
+module.exports = Util
