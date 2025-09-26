@@ -308,3 +308,176 @@ a.active {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== Login Page ===== */
+#login-page {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border: 2px solid #00a2c7;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#login-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c2c54;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.login-form input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form button {
+  padding: 0.7rem;
+  background: #00a2c7;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #0089a7;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link a {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Registration Form Styles ===== */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  border-color: #0077cc;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 119, 204, 0.5);
+}
+
+form button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: #005fa3;
+}
+
+/* ===== Password Toggle ===== */
+.password-wrapper {
+  display: flex;
+  flex-direction: column; /* stack input and button */
+  align-items: flex-start; /* align button to left under input */
+}
+
+.password-wrapper input {
+  width: 100%;
+  margin-bottom: 0.4rem; /* add spacing before button */
+}
+
+.toggle-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: none;
+  background: #0077cc; /* blue background */
+  color: #fff;         /* white text */
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s ease-in-out;
+}
+
+.toggle-btn:hover {
+  background: #005fa3; /* darker blue on hover */
+}
+
+/* Flash Messages */
+.flash.notice {
+  background: #ffe9e9;
+  border: 1px solid #ff5c5c;
+  color: #b30000;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+.flash.notice li {
+  margin: 0.2rem 0;
+}
+
+
+/* ===== Flash Messages ===== */
+.flash-messages {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f8d7da; /* light red background */
+  border: 1px solid #f5c6cb; /* red border */
+  color: #721c24; /* dark red text */
+}
+

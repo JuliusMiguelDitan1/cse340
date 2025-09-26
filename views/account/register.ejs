@@ -1,0 +1,63 @@
+<main>
+  <h1><%= title %></h1>
+
+  <!-- Flash / Success / Info Messages -->
+  <% if (messages && messages().length > 0) { %>
+    <div class="flash-messages">
+      <%- messages() %>
+    </div>
+  <% } %>
+
+  <!-- Validation Errors -->
+  <% if (errors) { %>
+    <div class="errors">
+      <ul>
+        <% errors.forEach(function(error) { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <!-- Registration Form -->
+  <form action="/account/register" method="post">
+    <label for="firstname">First Name</label>
+    <input 
+      type="text" 
+      id="firstname" 
+      name="firstname" 
+      required 
+      value="<%= typeof locals.firstname !== 'undefined' ? locals.firstname : '' %>">
+
+    <label for="lastname">Last Name</label>
+    <input 
+      type="text" 
+      id="lastname" 
+      name="lastname" 
+      required
+      value="<%= typeof locals.lastname !== 'undefined' ? locals.lastname : '' %>">
+
+    <label for="email">Email Address</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      required
+      value="<%= typeof locals.email !== 'undefined' ? locals.email : '' %>">
+
+    <label for="password">Password</label>
+    <div class="password-wrapper">
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        required>
+      <button type="button" id="togglePassword" class="toggle-btn">👁</button>
+    </div>
+
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="/js/script.js"></script>
+</main>
