@@ -491,3 +491,71 @@ form button:hover {
   color: #721c24; /* dark red text */
 }
 
+/* ===== Inventory Management Page (Scoped) ===== */
+.inventory-management-page main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fafafa;
+  border: 2px solid #00a2c7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.inventory-management-page main h1 {
+  font-size: 2rem;
+  color: #2c2c54;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.inventory-management-page main p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.inventory-management-page main ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.inventory-management-page main ul li {
+  margin: 0.8rem 0;
+}
+
+.inventory-management-page main ul li a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.inventory-management-page main ul li a:hover {
+  background-color: #005fa3;
+}
+
+/* Flash messages */
+.inventory-management-page .flash {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background-color: #ffe9e9;
+  border: 1px solid #ff5c5c;
+  color: #b30000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.inventory-management-page .flash li {
+  margin: 0.3rem 0;
+}
+
+
