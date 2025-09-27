@@ -68,10 +68,10 @@ app.use(async (req, res, next) => {
 app.use(express.static("public"))
 app.use(static)
 // Index route
-// Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 app.use("/account", require("./routes/accountRoute"))
+
 app.use("/error", errorRoute) // error footer
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

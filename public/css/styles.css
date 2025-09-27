@@ -437,6 +437,16 @@ form button:hover {
   margin-bottom: 0.4rem; /* add spacing before button */
 }
 
+.password-requirements {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #444;
+  background: #f0f8ff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+
 .toggle-btn {
   padding: 6px 10px;
   font-size: 0.9rem;
