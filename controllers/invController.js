@@ -145,8 +145,8 @@ invCont.buildAddInventory = async (req, res, next) => {
       inv_model: '',
       inv_year: '',
       inv_description: '',
-      inv_image: '/images/no-image.png',
-      inv_thumbnail: '/images/no-image.png',
+      inv_image: '/images/vehicles/no-image.png',
+      inv_thumbnail: '/images/vehicles/no-image-tn.png',
       inv_price: '',
       inv_miles: '',
       inv_color: ''
@@ -159,6 +159,15 @@ invCont.buildAddInventory = async (req, res, next) => {
 // POST: process add inventory
 invCont.addInventory = async (req, res, next) => {
   try {
+
+        // Set default images if empty
+    if (!req.body.inv_image || req.body.inv_image.trim() === '') {
+      req.body.inv_image = '/images/vehicles/no-image.png';
+    }
+    if (!req.body.inv_thumbnail || req.body.inv_thumbnail.trim() === '') {
+      req.body.inv_thumbnail = '/images/vehicles/no-image.png';
+    }
+
     const result = await invModel.addInventory(req.body)
 
     if (result) {
