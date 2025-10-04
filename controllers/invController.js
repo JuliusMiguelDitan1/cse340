@@ -129,7 +129,6 @@ invCont.buildAddInventory = async (req, res, next) => {
  * *************************************** */
 invCont.addInventory = async (req, res, next) => {
   try {
-    // Set default images if empty
     if (!req.body.inv_image || req.body.inv_image.trim() === '') {
       req.body.inv_image = '/images/vehicles/no-image.png';
     }
@@ -142,9 +141,11 @@ invCont.addInventory = async (req, res, next) => {
     if (result) {
       req.flash("notice", `Vehicle "${req.body.inv_make} ${req.body.inv_model}" added successfully.`)
       const nav = await utilities.getNav()
+      const classificationSelect = await utilities.buildClassificationList() // <-- define it
       res.status(201).render("inventory/management", {
         title: "Inventory Management",
         nav,
+        classificationSelect,
         messages: req.flash(),
         errors: null
       })

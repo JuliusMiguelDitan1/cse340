@@ -20,7 +20,7 @@ validate.checkClassificationData = async (req, res, next) => {
     return res.render("inventory/add-classification", {
       title: "Add Classification",
       nav,
-      errors,
+      errors: errors.array(), // <-- send plain array
       messages: req.flash()
     })
   }
@@ -45,7 +45,7 @@ validate.checkInventoryData = async (req, res, next) => {
       title: "Add Inventory",
       classificationList,
       messages: req.flash(),
-      errors,
+      errors: errors.array(), // <-- send plain array
       ...req.body // sticky values
     })
   }
