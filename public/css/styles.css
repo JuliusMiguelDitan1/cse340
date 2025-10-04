@@ -6,28 +6,25 @@
 }
 
 /* ===== Fonts ===== */
-/* ===== Page Background Pattern ===== */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
   color: #111;
-
-  /* Background pattern outside all sections */
   background-image: url("/images/site/checkerboard.jpg"),
                     url("/images/site/small_check.jpg"),
                     url("/images/site/small_check.png");
   background-repeat: repeat;
   background-size: auto;
   background-position: top left;
-  background-attachment: fixed;  /* stays in place on scroll */
-  background-color: #fff;        /* fallback color */
+  background-attachment: fixed;
+  background-color: #fff;
 }
 
 /* ===== Hide background pattern on mobile ===== */
 @media (max-width: 767px) {
   body {
     background-image: none;
-    background-color: #fff;  /* fallback plain background */
+    background-color: #fff;
   }
 }
 
@@ -82,11 +79,9 @@ nav ul {
 nav li {
   flex: 1;
   text-align: center;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
   display: block;
   padding: 0.5rem 0;
+  font-weight: bold;
 }
 
 nav a {
@@ -152,7 +147,7 @@ h3 {
   margin-left: 1rem;
 }
 
-/* Featured Vehicles Grid */
+/* ===== Featured Vehicles Grid ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -197,7 +192,6 @@ h3 {
   gap: 1.5rem;
 }
 
-/* Main vehicle image styling */
 .vehicle-image img {
   width: 100%;
   max-width: 600px;
@@ -221,7 +215,6 @@ h3 {
   margin: 0.5rem 0;
 }
 
-/* Vehicle thumbnails */
 .vehicle-thumbnails {
   display: flex;
   gap: 0.5rem;
@@ -266,6 +259,7 @@ footer {
   margin-top: 2rem;
   font-size: 0.85rem;
 }
+
 footer a{
   color: #fff;
 }
@@ -309,71 +303,8 @@ a.active {
   }
 }
 
-/* ===== Login Page ===== */
-#login-page {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border: 2px solid #00a2c7;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-#login-page h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #2c2c54;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.login-form label {
-  font-weight: bold;
-  margin-bottom: 0.3rem;
-}
-
-.login-form input {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-form button {
-  padding: 0.7rem;
-  background: #00a2c7;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-form button:hover {
-  background: #0089a7;
-}
-
-.register-link {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.register-link a {
-  color: #0077cc;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.register-link a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Registration Form Styles ===== */
-form {
+/* ===== Login & Registration ===== */
+#login-page, form {
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
@@ -383,14 +314,20 @@ form {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-form label {
+#login-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c2c54;
+}
+
+form label, .login-form label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
   color: #333;
 }
 
-form input {
+form input, .login-form input {
   width: 100%;
   padding: 0.75rem;
   margin-top: 0.5rem;
@@ -400,13 +337,13 @@ form input {
   box-sizing: border-box;
 }
 
-form input:focus {
+form input:focus, .login-form input:focus {
   border-color: #0077cc;
   outline: none;
   box-shadow: 0 0 3px rgba(0, 119, 204, 0.5);
 }
 
-form button {
+form button, .login-form button {
   display: block;
   width: 100%;
   margin-top: 1.5rem;
@@ -421,20 +358,20 @@ form button {
   transition: background-color 0.2s ease-in-out;
 }
 
-form button:hover {
+form button:hover, .login-form button:hover {
   background-color: #005fa3;
 }
 
-/* ===== Password Toggle ===== */
+/* ===== Password fields & toggle ===== */
 .password-wrapper {
   display: flex;
-  flex-direction: column; /* stack input and button */
-  align-items: flex-start; /* align button to left under input */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .password-wrapper input {
   width: 100%;
-  margin-bottom: 0.4rem; /* add spacing before button */
+  margin-bottom: 0.4rem;
 }
 
 .password-requirements {
@@ -446,52 +383,40 @@ form button:hover {
   border-radius: 4px;
 }
 
-
 .toggle-btn {
   padding: 6px 10px;
   font-size: 0.9rem;
   border: none;
-  background: #0077cc; /* blue background */
-  color: #fff;         /* white text */
+  background: #0077cc;
+  color: #fff;
   cursor: pointer;
   border-radius: 4px;
   font-weight: bold;
-  transition: background 0.2s ease-in-out;
 }
 
 .toggle-btn:hover {
-  background: #005fa3; /* darker blue on hover */
+  background: #005fa3;
 }
-
-/* Flash Messages */
-.flash.notice {
-  background: #ffe9e9;
-  border: 1px solid #ff5c5c;
-  color: #b30000;
-  padding: 0.5rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  list-style: none;
-}
-.flash.notice li {
-  margin: 0.2rem 0;
-}
-
 
 /* ===== Flash Messages ===== */
-.flash-messages {
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 0.95rem;
+.flash.notice, .flash-messages, .errors {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background-color: #ffe9e9;
+  border: 1px solid #ff5c5c;
+  color: #b30000;
   font-weight: bold;
   text-align: center;
-  background-color: #f8d7da; /* light red background */
-  border: 1px solid #f5c6cb; /* red border */
-  color: #721c24; /* dark red text */
+  list-style: none;
 }
 
-/* ===== Inventory Management Page (Scoped) ===== */
+.flash.notice li, .flash-messages li, .errors li {
+  margin: 0.3rem 0;
+}
+
+/* ===== Inventory Management Page ===== */
 .inventory-management-page main {
   max-width: 800px;
   margin: 2rem auto;
@@ -541,21 +466,209 @@ form button:hover {
   background-color: #005fa3;
 }
 
-/* Flash messages */
-.inventory-management-page .flash {
+/* ===== Account Update & Change Password Forms ===== */
+.account-update-page form {
+  max-width: 500px;
+  margin: 1.5rem auto;
+  padding: 2rem;
+  border: 2px solid #00a2c7;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.account-update-page h1, 
+.account-update-page h2, 
+.account-update-page h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.account-update-page label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.account-update-page input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+}
+
+.account-update-page input:focus {
+  border-color: #0077cc;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0,119,204,0.5);
+}
+
+.account-update-page button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background-color: #0077cc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.account-update-page button:hover {
+  background-color: #005fa3;
+}
+
+/* Password requirements note */
+.account-update-page .password-requirements {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.5rem;
+  background: #f0f8ff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+/* ===== Account Update & Change Password Forms ===== */
+.account-update-page main {
   max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 2px solid #00a2c7;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.account-update-page h1, 
+.account-update-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c2c54;
+}
+
+.account-update-page .form-group {
+  margin-bottom: 1rem;
+}
+
+.account-update-page label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.account-update-page input[type="text"],
+.account-update-page input[type="email"],
+.account-update-page input[type="password"],
+.account-update-page input[type="hidden"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.account-update-page input:focus {
+  border-color: #0077cc;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0,119,204,0.5);
+}
+
+.account-update-page input[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background-color: #0077cc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.account-update-page input[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+.account-update-page .flash,
+.account-update-page .errors {
+  max-width: 100%;
   margin: 0 auto 1.5rem auto;
   padding: 0.8rem 1rem;
   border-radius: 8px;
-  background-color: #ffe9e9;
-  border: 1px solid #ff5c5c;
   color: #b30000;
   font-weight: bold;
   text-align: center;
+  list-style: none;
+  background-color: #ffe9e9;
+  border: 1px solid #ff5c5c;
 }
 
-.inventory-management-page .flash li {
+.account-update-page .flash li,
+.account-update-page .errors li {
   margin: 0.3rem 0;
 }
+
+.account-update-page .change-password-form p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+  background: #f0f8ff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.account-update-page .change-password-form input[type="password"] {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Manage Page ===== */
+.manage-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children horizontally */
+  text-align: center;  /* centers text inside elements like h2 and a */
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fafafa;
+  border: 2px solid #00a2c7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.manage-page h2 {
+  margin-bottom: 1.5rem;
+  color: #2c2c54;
+}
+
+.manage-page .dashboard-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* centers the links horizontally */
+}
+
+.manage-page .dashboard-links a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.manage-page .dashboard-links a:hover {
+  background-color: #005fa3;
+}
+
+
 
 

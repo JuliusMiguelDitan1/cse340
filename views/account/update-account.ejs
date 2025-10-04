@@ -1,0 +1,106 @@
+<main class="account-update-page">
+  <!-- Page Title -->
+  <h1><%= title %></h1>
+
+  <!-- Flash Messages -->
+  <% if (messages && messages.notice && messages.notice.length > 0) { %>
+    <ul class="flash">
+      <% messages.notice.forEach(function(msg) { %>
+        <li><%= msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <% if (errors && errors.length > 0) { %>
+    <ul class="errors">
+      <% errors.forEach(function(err) { %>
+        <li><%= err.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <!-- ========================= -->
+  <!-- ACCOUNT UPDATE FORM -->
+  <!-- ========================= -->
+  <section class="account-update-form">
+    <h2>Account Update</h2>
+    <form action="/account/update" method="post" novalidate>
+      <!-- Hidden account ID -->
+      <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="account_firstname">First Name</label>
+        <input 
+          type="text" 
+          id="account_firstname" 
+          name="account_firstname" 
+          value="<%= accountData.account_firstname %>" 
+          required 
+          pattern="[A-Za-z]{1,30}"
+        >
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="account_lastname">Last Name</label>
+        <input 
+          type="text" 
+          id="account_lastname" 
+          name="account_lastname" 
+          value="<%= accountData.account_lastname %>" 
+          required 
+          pattern="[A-Za-z]{1,30}"
+        >
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="account_email">Email</label>
+        <input 
+          type="email" 
+          id="account_email" 
+          name="account_email" 
+          value="<%= accountData.account_email %>" 
+          required
+        >
+      </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+        <input type="submit" value="Update Account">
+      </div>
+    </form>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CHANGE PASSWORD FORM -->
+  <!-- ========================= -->
+  <section class="change-password-form">
+    <h2>Change Password</h2>
+    <p>Enter a new password to change your current password. Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</p>
+
+    <form action="/account/update-password" method="post" novalidate>
+      <!-- Hidden account ID -->
+      <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+      <!-- New Password -->
+      <div class="form-group">
+        <label for="account_password">New Password</label>
+        <input 
+          type="password" 
+          id="account_password" 
+          name="account_password" 
+          placeholder="Enter new password" 
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+        >
+      </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+        <input type="submit" value="Change Password">
+      </div>
+    </form>
+  </section>
+</main>
+

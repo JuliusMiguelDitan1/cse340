@@ -3,7 +3,7 @@ const pool = require("../database/")
 /* ***************************
  *  Get all classification data
  * ************************** */
-async function getClassifications(){
+async function getClassifications() {
   return await pool.query(
     "SELECT * FROM public.classification ORDER BY classification_name"
   )
@@ -58,6 +58,9 @@ async function addClassification(classification_name) {
   }
 }
 
+/* ***************************
+ *  Add new inventory
+ * ************************** */
 async function addInventory(data) {
   try {
     const sql = `INSERT INTO inventory 
@@ -84,11 +87,62 @@ async function addInventory(data) {
   }
 }
 
+/* ***************************
+ *  Update Inventory Data
+ * ************************** */
+async function updateInventory(data) {
+  const {
+    inv_id, classification_id, inv_make, inv_model, inv_year,
+    inv_description, inv_image, inv_thumbnail,
+    inv_price, inv_miles, inv_color
+  } = data
+
+  const sql = `
+    UPDATE public.inventory
+    SET classification_id = $1,
+        inv_make = $2,
+        inv_model = $3,
+        inv_year = $4,
+        inv_description = $5,
+        inv_image = $6,
+        inv_thumbnail = $7,
+        inv_price = $8,
+        inv_miles = $9,
+        inv_color = $10
+    WHERE inv_id = $11
+    RETURNING *;
+  `
+
+  const values = [
+    classification_id, inv_make, inv_model, inv_year,
+    inv_description, inv_image, inv_thumbnail,
+    inv_price, inv_miles, inv_color, inv_id
+  ]
+
+  return pool.query(sql, values)
+}
+
+/* ***************************
+ *  Delete Inventory Item
+ * ************************** */
+async function deleteInventory(inv_id) {
+  try {
+    const sql = 'DELETE FROM public.inventory WHERE inv_id = $1'
+    const data = await pool.query(sql, [inv_id])
+    return data
+  } catch (error) {
+    console.error("Delete Inventory Error", error)
+    throw error
+  }
+}
+
 
 module.exports = { 
   getClassifications, 
   getInventoryByClassificationId, 
   getVehicleById,
   addClassification,
-  addInventory
+  addInventory,
+  updateInventory,
+  deleteInventory
 }

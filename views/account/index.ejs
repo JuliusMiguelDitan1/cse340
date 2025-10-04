@@ -1,0 +1,35 @@
+<main>
+  <h1><%= title %></h1>
+
+  <!-- Flash messages from express-messages -->
+  <% if (messages && messages.notice) { %>
+    <ul class="flash">
+      <% messages.notice.forEach(function(msg) { %>
+        <li><%= msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <!-- Server-side validation errors (if any) -->
+  <% if (errors && errors.array && errors.array().length > 0) { %>
+    <div class="errors">
+      <ul>
+        <% errors.array().forEach(function(error) { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <!-- Task 3: Greeting -->
+  <h2>Welcome <%= accountData.account_firstname %></h2>
+
+  <!-- Update Account link (all users) -->
+  <p><a href="/account/update/<%= accountData.account_id %>">Update Account Information</a></p>
+
+  <!-- Inventory Management link (Employee/Admin only) -->
+  <% if (accountData.account_type === 'Employee' || accountData.account_type === 'Admin') { %>
+    <h3>Inventory Management</h3>
+    <p><a href="/inv/management">Access Inventory Management</a></p>
+  <% } %>
+</main>

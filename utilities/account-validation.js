@@ -9,7 +9,7 @@ const utilities = require(".")
  * ***************************** */
 validate.loginRules = () => {
   return [
-    body("email")
+    body("account_email")
       .trim()
       .escape()
       .notEmpty()
@@ -17,7 +17,7 @@ validate.loginRules = () => {
       .normalizeEmail()
       .withMessage("A valid email is required."),
 
-    body("password")
+    body("account_password")
       .trim()
       .notEmpty()
       .withMessage("Password is required."),
@@ -109,5 +109,63 @@ validate.checkRegData = async (req, res, next) => {
   }
   next()
 }
+
+// Account update (name/email)
+validate.accountUpdateRules = () => {
+  return [
+    body("account_firstname").trim().notEmpty().withMessage("First name is required."),
+    body("account_lastname").trim().notEmpty().withMessage("Last name is required."),
+    body("account_email").trim().isEmail().withMessage("A valid email is required.")
+      .custom(async (email, { req }) => {
+        const existing = await accountModel.checkExistingEmail(email);
+        if (existing && existing.account_id != req.body.account_id) {
+          throw new Error("Email already exists.");
+        }
+      })
+  ];
+};
+
+validate.checkAccountUpdateData = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const accountData = req.body;
+    let nav = await utilities.getNav();
+    return res.render("account/update-account", {
+      title: "Update Account",
+      nav,
+      accountData,
+      errors,
+      messages: req.flash()
+    });
+  }
+  next();
+};
+
+// Password update
+validate.passwordUpdateRules = () => {
+  return [
+    body("account_password")
+      .trim()
+      .notEmpty()
+      .isStrongPassword({ minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 })
+      .withMessage("Password does not meet requirements.")
+  ];
+};
+
+validate.checkPasswordData = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const accountData = await accountModel.getAccountById(req.body.account_id);
+    let nav = await utilities.getNav();
+    return res.render("account/update-account", {
+      title: "Update Account",
+      nav,
+      accountData,
+      errors,
+      messages: req.flash()
+    });
+  }
+  next();
+};
 
 module.exports = validate
