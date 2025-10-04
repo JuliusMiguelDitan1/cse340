@@ -671,4 +671,40 @@ body main.manage-page .dashboard-links a:hover {
   background-color: #005fa3;
 }
 
+/* ===== Unified Button & Link Button Styles ===== */
+button,
+input[type="submit"],
+.manage-page .dashboard-links a {
+  display: inline-block;
+  width: auto;
+  background-color: #007bff; /* bright accessible blue */
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: all 0.25s ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.manage-page .dashboard-links a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+button:focus,
+input[type="submit"]:focus,
+.manage-page .dashboard-links a:focus {
+  outline: 3px solid #00a2c7;
+  outline-offset: 3px;
+}
 
