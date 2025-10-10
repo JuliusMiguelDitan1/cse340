@@ -21,6 +21,7 @@ const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 
+
 //favicon
 const path = require("path")
 const favicon = require("serve-favicon")
@@ -74,7 +75,7 @@ app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 app.use("/account", require("./routes/accountRoute"))
-
+app.use("/cart", require("./routes/cartRoute"))
 app.use("/error", errorRoute) // error footer
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

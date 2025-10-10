@@ -148,12 +148,12 @@ h3 {
 }
 
 /* ===== Featured Vehicles Grid ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  justify-items: center;
-  align-items: start;
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 1rem; 
+  justify-items: center; 
+  align-items: start; 
 }
 
 .grid article {
@@ -178,6 +178,51 @@ h3 {
   margin-top: 0.3rem;
   font-weight: bold;
   text-decoration: none;
+  color: #111;
+}
+
+/* === Inventory Display Grid === */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive columns */
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+#inv-display li {
+  background-color: #00a2c7;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inv-display li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+#inv-display img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+#inv-display .namePrice {
+  margin-top: 0.5rem;
+}
+
+#inv-display h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+#inv-display span {
+  font-weight: bold;
   color: #111;
 }
 
@@ -706,5 +751,33 @@ input[type="submit"]:focus,
 .manage-page .dashboard-links a:focus {
   outline: 3px solid #00a2c7;
   outline-offset: 3px;
+}
+
+/* ===== Cart ===== */
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.cart-thumbnail {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cart-info h2 {
+  margin-bottom: 0.3rem;
 }
 

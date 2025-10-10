@@ -5,7 +5,10 @@
   <div id="tools">
     <% if (locals.accountData) { %>
       <!-- Shown only when logged in -->
-      <a href="/account/manage" title="Go to your account">Welcome <%= accountData.account_firstname %></a>
+      <a href="/account/manage" title="Go to your account">
+        Welcome <%= accountData.account_firstname %>
+      </a>
+      <a href="/cart" title="View your shopping cart">🛒 Cart</a>
       <a href="/account/logout" title="Click to log out">Logout</a>
     <% } else { %>
       <!-- Shown only when not logged in -->

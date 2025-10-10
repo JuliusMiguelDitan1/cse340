@@ -259,5 +259,29 @@ SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
 SELECT inv_make, inv_model, inv_image, inv_thumbnail
 FROM inventory;
 
+CREATE TABLE IF NOT EXISTS public.cart (
+    cart_id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL,
+    inv_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_cart_account
+        FOREIGN KEY (account_id)
+        REFERENCES public.account (account_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+
+    CONSTRAINT fk_cart_inventory
+        FOREIGN KEY (inv_id)
+        REFERENCES public.inventory (inv_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+
+    CONSTRAINT uq_account_inventory UNIQUE (account_id, inv_id)
+);
+
+
+
 
 

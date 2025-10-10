@@ -1,0 +1,36 @@
+<main id="cart-page">
+    <h1>Your Shopping Cart</h1>
+
+    <% if (cartItems && cartItems.rows && cartItems.rows.length > 0) { %>
+      <ul class="cart-list">
+        <% cartItems.rows.forEach(item => { %>
+          <li class="cart-item">
+            <% if (item.inv_thumbnail) { %>
+              <img src="<%= item.inv_thumbnail %>" 
+                   alt="<%= item.inv_make %> <%= item.inv_model %>" 
+                   class="cart-thumb">
+            <% } %>
+            <div class="cart-details">
+              <h2><%= item.inv_make %> <%= item.inv_model %></h2>
+              <p>Price: $<%= Number(item.inv_price).toLocaleString() %></p>
+              <p>Quantity: <%= item.quantity %></p>
+              <p><strong>Total:</strong> $<%= (item.inv_price * item.quantity).toLocaleString() %></p>
+
+              <!-- Delete button -->
+              <form action="/cart/remove" method="post" style="margin-top: 10px;">
+                <input type="hidden" name="inv_id" value="<%= item.inv_id %>">
+                <button type="submit" class="remove-btn">🗑 Remove</button>
+              </form>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+
+      <hr>
+      <p><strong>Grand Total:</strong> 
+        $<%= cartItems.rows.reduce((sum, item) => sum + (item.inv_price * item.quantity), 0).toLocaleString() %>
+      </p>
+
+    <% } else { %>
+      <p>Your cart is empty.</p>
+    <% } %>

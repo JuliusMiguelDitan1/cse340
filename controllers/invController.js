@@ -77,9 +77,11 @@ invCont.addClassification = async function (req, res, next) {
     if (result) {
       req.flash("notice", `Classification "${classification_name}" added successfully.`)
       nav = await utilities.getNav() // refresh nav
+      const classificationSelect = await utilities.buildClassificationList()
       res.status(201).render("inventory/management", {
         title: "Inventory Management",
         nav,
+        classificationSelect,
         errors: null,
         messages: req.flash()
       })
@@ -88,6 +90,7 @@ invCont.addClassification = async function (req, res, next) {
       res.status(501).render("inventory/add-classification", {
         title: "Add Classification",
         nav,
+        classificationSelect,
         errors: null,
         messages: req.flash()
       })
@@ -297,6 +300,35 @@ invCont.deleteInventory = async function (req, res, next) {
     next(err)
   }
 }
+
+/* ****************************************
+ *  Build Vehicle Detail View
+ * *************************************** */
+invCont.buildByInvId = async function (req, res, next) {
+  try {
+    const invId = req.params.invId
+    let nav = await utilities.getNav()
+    const data = await invModel.getVehicleById(invId) // make sure this exists in your model!
+
+    if (!data) {
+      req.flash("notice", "Vehicle not found.")
+      return res.redirect("/inv")
+    }
+
+    const name = `${data.inv_make} ${data.inv_model}`
+    res.render("./inventory/details", {
+      title: name,
+      nav,
+      inv: data,
+      errors: null,
+      messages: req.flash()
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+
 
 
 module.exports = invCont

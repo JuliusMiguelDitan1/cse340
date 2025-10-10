@@ -1,8 +1,4 @@
-<%- include("../partials/head") %>
-<title><%= title %></title>
-</head>
-<body>
-  <%- include("../partials/header") %>
+
   <main id="inv-detail">
     <h1><%= inv.inv_make %> <%= inv.inv_model %></h1>
     <section class="vehicle-detail">
@@ -12,12 +8,15 @@
       </figure>
       <div class="vehicle-info">
         <h2><%= inv.inv_year %> <%= inv.inv_make %> <%= inv.inv_model %></h2>
-        <p><strong>Price:</strong> <%= inv.inv_price_fmt %></p>
-        <p><strong>Mileage:</strong> <%= inv.inv_miles_fmt %> miles</p>
+        <p><strong>Price:</strong> $<%= Number(inv.inv_price).toLocaleString() %></p>
+        <p><strong>Mileage:</strong> <%= Number(inv.inv_miles).toLocaleString() %> miles</p>
         <p><strong>Color:</strong> <%= inv.inv_color %></p>
         <p><strong>Description:</strong> <%= inv.inv_description %></p>
       </div>
+      <form action="/cart/add" method="post">
+      <input type="hidden" name="inv_id" value="<%= inv.inv_id %>">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+      </form>
     </section>
-  </main>
-</body>
-</html>
